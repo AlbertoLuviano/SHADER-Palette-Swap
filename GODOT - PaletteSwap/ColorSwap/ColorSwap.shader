@@ -30,7 +30,6 @@ void fragment(){
 	referenceColors[11] = C12;
 	
 	vec4 textureColor = texture(TEXTURE, UV);
-	COLOR = vec4(0.0, 0.0 ,0.0, 0.0);
 	COLOR.rgb = referenceColors[int(floor(textureColor.r * float(numberOfColors)))].rgb;
 	COLOR.a = textureColor.a;
 }
