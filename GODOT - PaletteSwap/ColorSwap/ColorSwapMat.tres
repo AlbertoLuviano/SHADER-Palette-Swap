@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://ColorSwap/ColorSwap.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/numberOfColors = 12
+shader_param/C1 = Color( 0.121569, 0.101961, 0.368627, 1 )
+shader_param/C2 = Color( 0.117647, 0.266667, 0.560784, 1 )
+shader_param/C3 = Color( 0.192157, 0.505882, 0.968627, 1 )
+shader_param/C4 = Color( 0.129412, 0.913725, 1, 1 )
+shader_param/C5 = Color( 0.580392, 0.0784314, 0.207843, 1 )
+shader_param/C6 = Color( 0.741176, 0.14902, 0.188235, 1 )
+shader_param/C7 = Color( 0.858824, 0.113725, 0.309804, 1 )
+shader_param/C8 = Color( 0.164706, 0.678431, 0.282353, 1 )
+shader_param/C9 = Color( 0.552941, 0.870588, 0.486275, 1 )
+shader_param/C10 = Color( 0.972549, 1, 0.121569, 1 )
+shader_param/C11 = Color( 0.8, 0.8, 0.113725, 1 )
+shader_param/C12 = Color( 1, 1, 1, 1 )

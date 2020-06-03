@@ -1,0 +1,466 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://ColorSwap/BackGrid1024gray2.png" type="Texture" id=1]
+[ext_resource path="res://RockShow.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Buttons.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ColorSwap/MsPacMan.png" type="Texture" id=4]
+[ext_resource path="res://ColorSwap/Jump01.png" type="Texture" id=5]
+[ext_resource path="res://ColorSwap/ColorSwapMat.tres" type="Material" id=6]
+[ext_resource path="res://ColorSwap/SamusFusionGrayScale.png" type="Texture" id=7]
+[ext_resource path="res://Fonts/Text.tres" type="DynamicFont" id=8]
+
+[sub_resource type="Gradient" id=1]
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 960
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color( 0.443137, 0, 0, 0 )
+corner_radius_top_left = 8
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 1, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color( 0.0313726, 0.45098, 0.0313726, 0 )
+corner_radius_top_left = 8
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.352941, 0.352941, 1, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color( 0, 0.12549, 1, 0 )
+corner_radius_top_left = 8
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 0 )
+corner_radius_top_left = 8
+corner_radius_bottom_left = 6
+
+[node name="World" type="Node"]
+
+[node name="BackGrid1024" type="Sprite" parent="."]
+self_modulate = Color( 0.423529, 0.623529, 0.890196, 1 )
+position = Vector2( 512, 288 )
+scale = Vector2( 1.67594, 1.59116 )
+texture = ExtResource( 1 )
+
+[node name="Sprites" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="Sprites"]
+
+[node name="MsPacMan" type="Sprite" parent="."]
+visible = false
+material = ExtResource( 6 )
+position = Vector2( 512, 256 )
+scale = Vector2( 15, 15 )
+texture = ExtResource( 4 )
+
+[node name="MegaMan" type="Sprite" parent="."]
+visible = false
+material = ExtResource( 6 )
+position = Vector2( 512, 256 )
+scale = Vector2( 9, 9 )
+texture = ExtResource( 5 )
+
+[node name="MFusion" type="Sprite" parent="."]
+material = ExtResource( 6 )
+position = Vector2( 512, 256 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentSelection" type="ColorRect" parent="UI"]
+margin_left = 14.0
+margin_top = 438.0
+margin_right = 110.0
+margin_bottom = 494.0
+color = Color( 1, 0.894118, 0.0470588, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="HBoxContainer" parent="UI"]
+anchor_right = 1.0
+margin_left = 118.0
+margin_top = 22.0
+margin_right = -118.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureColor" type="Button" parent="UI/Options"]
+margin_right = 249.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Texture Colors"
+
+[node name="StaticSwap" type="Button" parent="UI/Options"]
+margin_left = 259.0
+margin_right = 508.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Static Swap"
+
+[node name="DynamicSwap" type="Button" parent="UI/Options"]
+margin_left = 518.0
+margin_right = 768.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Dynamic Swap"
+
+[node name="MapColors" type="HBoxContainer" parent="UI"]
+margin_left = 22.0
+margin_top = 446.0
+margin_right = 982.0
+margin_bottom = 486.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color01" type="ColorRect" parent="UI/MapColors"]
+margin_right = 80.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.121569, 0.101961, 0.368627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color02" type="ColorRect" parent="UI/MapColors"]
+margin_left = 80.0
+margin_right = 160.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.117647, 0.266667, 0.560784, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color03" type="ColorRect" parent="UI/MapColors"]
+margin_left = 160.0
+margin_right = 240.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.192157, 0.505882, 0.968627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color04" type="ColorRect" parent="UI/MapColors"]
+margin_left = 240.0
+margin_right = 320.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.129412, 0.913725, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color05" type="ColorRect" parent="UI/MapColors"]
+margin_left = 320.0
+margin_right = 400.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.580392, 0.0784314, 0.207843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color06" type="ColorRect" parent="UI/MapColors"]
+margin_left = 400.0
+margin_right = 480.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.741176, 0.14902, 0.188235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color07" type="ColorRect" parent="UI/MapColors"]
+margin_left = 480.0
+margin_right = 560.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.858824, 0.113725, 0.309804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color08" type="ColorRect" parent="UI/MapColors"]
+margin_left = 560.0
+margin_right = 640.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.164706, 0.678431, 0.282353, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color09" type="ColorRect" parent="UI/MapColors"]
+margin_left = 640.0
+margin_right = 720.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.552941, 0.870588, 0.486275, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color10" type="ColorRect" parent="UI/MapColors"]
+margin_left = 720.0
+margin_right = 800.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.972549, 1, 0.121569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color11" type="ColorRect" parent="UI/MapColors"]
+margin_left = 800.0
+margin_right = 880.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.8, 0.8, 0.113725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color12" type="ColorRect" parent="UI/MapColors"]
+margin_left = 880.0
+margin_right = 960.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RefGrayscale" type="TextureRect" parent="UI"]
+margin_left = 22.0
+margin_top = 502.0
+margin_right = 982.0
+margin_bottom = 542.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpriteOptions" type="VBoxContainer" parent="UI"]
+margin_left = 54.0
+margin_top = 118.0
+margin_right = 245.0
+margin_bottom = 374.0
+custom_constants/separation = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MsPacMan" type="Button" parent="UI/SpriteOptions"]
+margin_right = 191.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Ms PacMan"
+
+[node name="MegaMan" type="Button" parent="UI/SpriteOptions"]
+margin_top = 98.0
+margin_right = 191.0
+margin_bottom = 156.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Mega Man"
+
+[node name="MFusion" type="Button" parent="UI/SpriteOptions"]
+margin_top = 196.0
+margin_right = 191.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Samus"
+
+[node name="ColorPicker" type="Panel" parent="UI"]
+margin_left = 742.0
+margin_top = 118.0
+margin_right = 950.0
+margin_bottom = 326.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Display" type="ColorRect" parent="UI/ColorPicker"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.501961, 0.501961, 0.501961, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RGB" type="VBoxContainer" parent="UI/ColorPicker"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 8.0
+margin_right = -16.0
+margin_bottom = -62.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="UI/ColorPicker/RGB"]
+margin_right = 176.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 8 )
+text = "Color picker"
+align = 1
+valign = 1
+
+[node name="Red" type="HSlider" parent="UI/ColorPicker/RGB"]
+margin_top = 46.0
+margin_right = 176.0
+margin_bottom = 63.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/grabber_area = SubResource( 3 )
+max_value = 1.0
+step = 0.01
+value = 0.5
+scrollable = false
+
+[node name="Green" type="HSlider" parent="UI/ColorPicker/RGB"]
+margin_top = 83.0
+margin_right = 176.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/grabber_area = SubResource( 4 )
+max_value = 1.0
+step = 0.01
+value = 0.5
+scrollable = false
+
+[node name="Blue" type="HSlider" parent="UI/ColorPicker/RGB"]
+margin_top = 120.0
+margin_right = 176.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/grabber_area = SubResource( 5 )
+max_value = 1.0
+step = 0.01
+value = 0.5
+scrollable = false
+
+[node name="DynamicSpeed" type="HSlider" parent="UI/ColorPicker"]
+margin_left = 16.0
+margin_top = 264.0
+margin_right = 192.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/grabber_area = SubResource( 6 )
+min_value = 0.1
+max_value = 1.0
+step = 0.05
+value = 0.1
+scrollable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="UI/ColorPicker/DynamicSpeed"]
+margin_left = -4.65552
+margin_top = -32.0
+margin_right = 181.344
+margin_bottom = -2.0
+custom_fonts/font = ExtResource( 8 )
+text = "Dynamic Speed"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="tween_completed" from="Sprites/Tween" to="Sprites" method="_on_DynamicSwapTween_completed"]
+[connection signal="tween_step" from="Sprites/Tween" to="Sprites" method="_on_DynamicSwapTween_step"]
+[connection signal="pressed" from="UI/Options/TextureColor" to="Sprites" method="_on_TextureColor_pressed"]
+[connection signal="pressed" from="UI/Options/StaticSwap" to="Sprites" method="_on_StaticSwap_pressed"]
+[connection signal="pressed" from="UI/Options/DynamicSwap" to="Sprites" method="_onDynamicSwap_pressed"]
+[connection signal="mouse_entered" from="UI/MapColors/Color01" to="Sprites" method="_on_mouse_entered" binds= [ 0 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color02" to="Sprites" method="_on_mouse_entered" binds= [ 1 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color03" to="Sprites" method="_on_mouse_entered" binds= [ 2 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color04" to="Sprites" method="_on_mouse_entered" binds= [ 3 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color05" to="Sprites" method="_on_mouse_entered" binds= [ 4 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color06" to="Sprites" method="_on_mouse_entered" binds= [ 5 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color07" to="Sprites" method="_on_mouse_entered" binds= [ 6 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color08" to="Sprites" method="_on_mouse_entered" binds= [ 7 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color09" to="Sprites" method="_on_mouse_entered" binds= [ 8 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color10" to="Sprites" method="_on_mouse_entered" binds= [ 9 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color11" to="Sprites" method="_on_mouse_entered" binds= [ 10 ]]
+[connection signal="mouse_entered" from="UI/MapColors/Color12" to="Sprites" method="_on_mouse_entered" binds= [ 11 ]]
+[connection signal="pressed" from="UI/SpriteOptions/MsPacMan" to="Sprites" method="_on_SpriteChange_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="UI/SpriteOptions/MegaMan" to="Sprites" method="_on_SpriteChange_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="UI/SpriteOptions/MFusion" to="Sprites" method="_on_SpriteChange_pressed" binds= [ 2 ]]
+[connection signal="value_changed" from="UI/ColorPicker/RGB/Red" to="Sprites" method="_on_ColorPicker_changed" binds= [ 0 ]]
+[connection signal="value_changed" from="UI/ColorPicker/RGB/Green" to="Sprites" method="_on_ColorPicker_changed" binds= [ 1 ]]
+[connection signal="value_changed" from="UI/ColorPicker/RGB/Blue" to="Sprites" method="_on_ColorPicker_changed" binds= [ 2 ]]
+[connection signal="value_changed" from="UI/ColorPicker/DynamicSpeed" to="Sprites" method="_on_DynamicSpeedValue_changed"]
